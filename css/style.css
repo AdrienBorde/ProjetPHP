@@ -1,8 +1,9 @@
-#titre_principal, #menu, #banniere_image, #sug_event, #map, #sug_amis, #dernier_match, #amis, #liste_amis {
+#titre_principal, #menu, #banniere_image, #sug_event, #map, #sug_amis, #dernier_match, #amis, #con, #liste_amis {
 	border: 3px solid black;
 	margin: 5px;
 	text-align: center;
 }
+
 
 #banniere_image {
 	width: 1600px;
@@ -19,10 +20,11 @@
 	height: 600px;
 }
 
-#sug_event {
-	margin-left: 50px;
-}
-
 #sug_event, #sug_amis {
 	height: 400px;
+}
+
+footer {
+	margin-top: 50px;
+	text-align: center;
 }
