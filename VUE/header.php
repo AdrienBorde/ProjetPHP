@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css\style.css">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <title>WHAT THE FOOT</title>
     </head>
@@ -18,15 +18,7 @@
                         <h1>WhatTheFoot</h1> 
                     </div>
 
-                    <div class="col-3 offset-2">
-                        <form id="con">
-                            Identifiant : 
-                            <input type="text" name="identifiant"><br/>
-                            Mot de passe :
-                            <input type="password" name="password"><br/>
-                            <input type="submit" value="Valider">
-                        </form>
-                    </div>
+                   <?php require('vue/connexion.php'); ?>
                     
                     <div class="col-3">
                         <nav id="menu">

@@ -1,5 +1,5 @@
                     <div class="col-3 offset-2">
-                        <form id="con">
+                        <form action=".php" target="_blank" method="post" id="con">
                             Identifiant : 
                             <input type="text" name="identifiant"><br/>
                             Mot de passe :
