@@ -1,7 +1,7 @@
 <?php
 
 // Chargement des fichiers modèles fonctions enregistrement_membre($pseudo, $pass_hash, $email) et check_bdd($pseudo)
-if(isset($_POST['inscription']))
+if(isset($_POST['Inscription']))
 {
     // On rend inoffensif les données de l'utilisateur
     $_POST['pseudo'] = strtolower(htmlspecialchars($_POST['pseudo']));
@@ -45,9 +45,4 @@ if(isset($_POST['inscription']))
             $_SESSION['inscris'] = 'inscris';
              
         }      
-}
-
-else
-{
-    include('vue/inscription.php');
 }

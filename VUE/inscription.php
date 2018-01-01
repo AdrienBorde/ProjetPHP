@@ -8,5 +8,5 @@
 	<input type="email" name="verif_email" id="verif_email">
 	Mot de passe :
 	<input type="password" name="mdp" id="mdp">
-	<input type="submit" value="S'inscrire" name="inscription" id="inscription">
+	<input type="submit" value="S'inscrire" name="Inscription" id="inscription">
 </form>

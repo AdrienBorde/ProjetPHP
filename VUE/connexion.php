@@ -6,4 +6,8 @@
                             <input type="password" name="mdp"><br/>
                             <input type="submit" name="connexion" value="Valider">
                         </form>
+                        <form action="index.php" method="post" id="inscript">
+                        	Inscription :
+                        	<input type="submit" value="Inscription" name="bouton"/>
+                        </form>
                     </div>

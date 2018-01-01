@@ -11,7 +11,7 @@ if(isset($_POST['connexion']))
         // si les pseudos et mdp sont bon
         if ($valid_connexion){
         $_SESSION['pseudo'] = $_POST['pseudo'];
-        echo "Bienvenue ";
+        echo "Bienvenue sur le site  ";
         echo $_SESSION['pseudo'];
         }
         //si ils sont mauvais on active le message d'erreur sur la vue

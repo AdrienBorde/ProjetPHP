@@ -18,8 +18,6 @@
                         <h1>WhatTheFoot</h1> 
                     </div>
 
-                   <?php require('vue/connexion.php'); ?>
-                    
                     <div class="col-3">
                         <nav id="menu">
                             <ul>
