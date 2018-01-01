@@ -56,4 +56,25 @@ function comparer_email($email){
 	}
 
 */
+
+function connexion($pseudo,$mdp)
+{
+	//se connecte à la base de donnée
+	$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
+	//On parcourt tous les utilisateurs
+	$reponse = $bdd->query('SELECT pseudo, mdp FROM Client');
+	
+	while ($donnees = $reponse->fetch())
+	{
+		//on regarde si nos identifiants sont dans la base de donnée
+		if ($donnees['pseudo'] == $pseudo AND $donnees['mdp']==$mdp)
+		{
+			//si oui on renvoie vrai
+		return true;
+		}
+		
+	}
+}
+
+
 ?>

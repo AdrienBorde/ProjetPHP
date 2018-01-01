@@ -4,7 +4,11 @@ session_start();
 
 
 include('connexionsql.php');
-include('CONTROLEUR/controleur.php');
+
+include('MODELE/modele.php');
+
+include('CONTROLEUR/controleur_inscription.php');
+include('CONTROLEUR/controleur_connexion.php');
 
 require('VUE/header.php');
 require('vue/sug_events.php');

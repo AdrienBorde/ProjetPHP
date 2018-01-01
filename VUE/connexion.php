@@ -1,9 +1,9 @@
                     <div class="col-3 offset-2">
-                        <form action=".php" target="_blank" method="post" id="con">
-                            Identifiant : 
-                            <input type="text" name="identifiant"><br/>
+                        <form action="index.php" method="post" id="connexion">
+                            Pseudo : 
+                            <input type="text" name="pseudo"><br/>
                             Mot de passe :
-                            <input type="password" name="password"><br/>
-                            <input type="submit" value="Valider">
+                            <input type="password" name="mdp"><br/>
+                            <input type="submit" name="connexion" value="Valider">
                         </form>
                     </div>
