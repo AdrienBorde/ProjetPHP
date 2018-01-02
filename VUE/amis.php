@@ -1,11 +1,19 @@
 <div class="col-4 mx-auto" id="amis">
-                    <h4>Mes amis</h4>
+                    <h4>Mes amis
+                    </h4>
                         <div id="liste_amis">
                             <ul>
-                                <li><a href="#">Zizou</a></li>
-                                <li><a href="#">CR7du32</a></li>
-                                <li><a href="#">HarryBAE_Kane</a></li>
-                                <li><a href="#">grizouLEzgegos</a></li>
+                                <?php 
+                                // va appeler la fonction listami pour lister les amis si la personne est connecté
+                                    if(isset($_SESSION))
+                                    {
+                                        listami();
+                                    }
+                                    else 
+                                    {
+                                        echo "Vous n'êtes pas connecté";
+                                    }
+                            ?>
                             </ul>
                         </div>
                 </div>

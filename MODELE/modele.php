@@ -76,5 +76,44 @@ function connexion($pseudo,$mdp)
 	}
 }
 
+// Va fixer la variable session[id] selon la personne qui est connecté
+function setIdSession($pseudo)
+{
+			//se connecte à la base de donnée
+			$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
+			//On recherche l'id du client 
+			$reponse = $bdd->query('SELECT idClient from Client where `Pseudo` = "'. $pseudo .  '" ');
+
+		while ($donnees = $reponse->fetch())
+			{
+			// on met à la variable session l'id Du client
+			$_SESSION['id'] = $donnees['idClient'];
+			}
+				$reponse->closeCursor();
+}
+	
+
+//Va réaliser la liste des amis
+function listami()
+{
+			//se connecte à la base de donnée
+			$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
+			//On recherche l'id du client dans la table ami
+			$reponse = $bdd->query('SELECT idAmi1,idAmi2,Pseudo
+									from amis
+									join Client on idAmi2 = idClient
+									where idAmi1 = "' .$_SESSION['id'].'"
+									');
+			  while ($donnees = $reponse->fetch())
+	        	{
+	        		//à chaque ligne de la table , nous allons lire le pseudo de idAmi2
+			?>
+			<li>  <a href="#"> <?php echo $donnees['Pseudo'] ?>   </a></li>
+			<?php
+				}
+					$reponse->closeCursor();
+}
+
+
 
 ?>

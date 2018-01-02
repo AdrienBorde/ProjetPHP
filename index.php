@@ -1,7 +1,6 @@
 <?php 
 
-session_start();
-session_unset();
+
 
 
 include('connexionsql.php');
@@ -18,7 +17,7 @@ if (isset($_POST['bouton'])) {
 if (!isset($_SESSION['pseudo'])) {
 	require('vue/connexion.php');
 }
-else{echo "connecté avec le compte"; 
+else{echo " connecté avec le compte "; 
 	 echo $_SESSION['pseudo'];}
 
 require('VUE/header.php');
@@ -30,7 +29,6 @@ require('vue/amis.php');
 require('vue/footer.php');
 
 include('CONTROLEUR/controleur_inscription.php');
-include('CONTROLEUR/controleur_connexion.php');
 
  ?>
 
