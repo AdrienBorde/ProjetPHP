@@ -15,7 +15,7 @@ if(isset($_POST['connexion']))
         echo $_SESSION['pseudo'];
         }
         //si ils sont mauvais on active le message d'erreur sur la vue
-        else ?>  <script> afficher("mauvais pseudo ou mauvais mot de passe"); </script>
-         <?php
+        else   echo ("mauvais pseudo ou mauvais mot de passe");
+         
 }
 ?>
