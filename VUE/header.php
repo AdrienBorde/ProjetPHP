@@ -23,7 +23,7 @@
                         <nav id="menu">
                             <ul>
                                 <li><a href="index.php">Accueil</a></li>
-                                <li><a href="<?php echo "pageProfil.php?pseudo=".$_SESSION['pseudo'] ?> "> mon Profil</a></li>
+                                <li><a href="<?php echo "pageProfil.php?pseudo=".$_SESSION['pseudo'] ?> "> Mon Profil</a></li>
                                 <li><a href="#">Evenement</a></li>
                                 <li><a href="#">A propos</a></li>
                             </ul>
