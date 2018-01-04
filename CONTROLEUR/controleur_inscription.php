@@ -11,30 +11,30 @@ if(isset($_POST['Inscription']))
   
      
     $Test_pseudo = comparer_pseudo($_POST['pseudo']);
-    //$Test_mail = comparer_email($_POST['email']);
+    $Test_mail = comparer_email($_POST['email']);
     
     // Verification de la validité de l'inscription
         // Verification du pseudo
         if($Test_pseudo)
         { 
            
-          ?>  <script> afficher("pseudo déjà utilisé"); </script> <?php
+          echo "pseudo déjà utilisé";
             
         }
 
-        /*
+        
         // Verification de l'email
-        if($Test_email)
+        if($Test_mail)
         { 
            
-          ?>  <script> afficher("email déjà utilisé"); </script> <?php
+         echo "email déjà utilisé";
             
         }
-		*/
+		
         // Verification de l'email correctement écrit la 2eme fois
         if($_POST['email'] != $_POST['verif_email'])
         {
-            ?>  <script> afficher("Les 2 emails écrits ne correspondent pas"); </script> <?php
+            echo "Les 2 emails écrits ne correspondent pas";
         }
          
         // Si tout est ok on enregistre le membre

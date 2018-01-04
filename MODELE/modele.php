@@ -35,16 +35,16 @@ function comparer_pseudo($pseudo){
 	$reponse->closeCursor();
 	}
 
-/*//compare l'email en parametre avec les emails de la bdd, renvoie true si il y a déjà l'email
+//compare l'email en parametre avec les emails de la bdd, renvoie true si il y a déjà l'email
 function comparer_email($email){
 // se connecter à la base de donnée
 	$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
 	// Récupération de tous les pseudos
-	$reponse = $bdd->query('SELECT email FROM Client ');
+	$reponse = $bdd->query('SELECT mail FROM Client ');
 	//on compare tous les emails avec le parametre $email
 	while ($donnees = $reponse->fetch())
 	{
-	   if ($donnees['email'] == $email)
+	   if ($donnees['mail'] == $email)
 	   {
 	    //return true si l'email est déjà utilisé
 	    return true;  
@@ -55,7 +55,7 @@ function comparer_email($email){
 	$reponse->closeCursor();
 	}
 
-*/
+
 
 function connexion($pseudo,$mdp)
 {
@@ -91,10 +91,28 @@ function setIdSession($pseudo)
 			}
 				$reponse->closeCursor();
 }
+
+function getPseudo($id)
+{
+			//se connecte à la base de donnée
+			$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
+			//On recherche l'id du client 
+			$reponse = $bdd->query('SELECT Pseudo from Client where `idClient` = "'. $id .  '" ');
+
+		while ($donnees = $reponse->fetch())
+			{
+			// on met à la variable session l'id Du client
+			$_SESSION['pseudo'] = $donnees['Pseudo'];
+			}
+
+				return $_SESSION['pseudo'];
+				$reponse->closeCursor();
+
+}
 	
 
-//Va réaliser la liste des amis
-function listami()
+//Retourne la liste des amis de l'utilisateur connecté
+function listeAmis()
 {
 			//se connecte à la base de donnée
 			$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');

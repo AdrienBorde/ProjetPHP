@@ -18,6 +18,7 @@
                         <h1>WhatTheFoot</h1> 
                     </div>
 
+                    
                     <div class="col-3">
                         <nav id="menu">
                             <ul>
@@ -27,12 +28,4 @@
                             </ul>
                         </nav>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-10 mx-auto" id="banniere_image">
-                        <p>image baniere</p>
-                        <img src="images/baniere_test.jpg" alt="">
-                    </div>
-                </div>
-            </header>
+               
