@@ -1,8 +1,5 @@
 <?php 
-
 session_start();
-
-
 include('connexionsql.php');
 
 include('MODELE/modele.php');
@@ -25,12 +22,12 @@ if (isset($_SESSION['id'])) {
 	require('vue/deconnexion.php');
 }
 
-require('vue/sug_events.php');
-require('vue/map.php');
-require('vue/sug_amis.php');
-require('vue/derniermatch.php');
-require('vue/amis.php');
+require('vue/profil.php');
+
+
+
+
+
 require('vue/footer.php');
 
- ?>
-
+?>

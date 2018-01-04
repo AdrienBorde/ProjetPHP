@@ -10,7 +10,7 @@
         $valid_connexion = connexion($_POST['pseudo'],$_POST['mdp']);
             // si les pseudos et mdp sont bon
             if ($valid_connexion){
-            session_start();
+           
 
             setIdSession($_POST['pseudo']);
             
@@ -24,7 +24,7 @@
     if(isset($_POST['deco']))
         {
            // Suppression des variables de session et de la session
-           session_start();
+          
 
            $_SESSION = array();
 

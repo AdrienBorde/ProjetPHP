@@ -14,7 +14,7 @@
             <header>                
                 <div class="row">
                     
-                    <div class="col-2 offset-1 id="titre_principal">
+                    <div class="col-3" offset-1 id="titre_principal">
                         <h1>WhatTheFoot</h1> 
                     </div>
 
@@ -22,7 +22,8 @@
                     <div class="col-3">
                         <nav id="menu">
                             <ul>
-                                <li><a href="#">Accueil</a></li>
+                                <li><a href="index.php">Accueil</a></li>
+                                <li><a href="<?php echo "pageProfil.php?pseudo=".$_SESSION['pseudo'] ?> "> mon Profil</a></li>
                                 <li><a href="#">Evenement</a></li>
                                 <li><a href="#">A propos</a></li>
                             </ul>
