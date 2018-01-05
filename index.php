@@ -10,7 +10,7 @@ include('MODELE/modele_connexion_inscription.php');
 include('CONTROLEUR/controleur_inscription.php');
 include('CONTROLEUR/controleur_connexion.php');
 
-supprimer_event(2);
+//supprimer_event(2);
 
 require('VUE/header.php');
 
