@@ -1,15 +1,16 @@
 <?php 
 
 session_start();
+include('MODELE/fonctions_globales.php');
 
-
-include('connexionsql.php');
-
-include('MODELE/modele.php');
+include('MODELE/modele_event.php');
+include('MODELE/modele_profil.php');
+include('MODELE/modele_connexion_inscription.php');
 
 include('CONTROLEUR/controleur_inscription.php');
 include('CONTROLEUR/controleur_connexion.php');
 
+supprimer_event(2);
 
 require('VUE/header.php');
 
@@ -28,8 +29,10 @@ if (isset($_SESSION['id'])) {
 require('vue/sug_events.php');
 require('vue/map.php');
 require('vue/sug_amis.php');
+
 require('vue/derniermatch.php');
 require('vue/amis.php');
+
 require('vue/footer.php');
 
  ?>

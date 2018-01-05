@@ -1,10 +1,11 @@
 <?php 
-include('connexionsql.php');
 
 $_pseudo = $_GET["pseudo"];
 //On vérifie qu'il y a bien une variable pseudo , puis on recupere les donnees dans la bdd de ce pseudo
 if(isset($_pseudo))
 {	
+  $bdd = bdd();
+
 	$reponse = $bdd-> query('SELECT * from client where pseudo="' .$_pseudo .'"');
 	$donnees = $reponse->fetch();
 }
