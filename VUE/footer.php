@@ -1,8 +1,11 @@
 		
 		<div class="row">
-			<footer class="col-6 offset-3">
-			            <p>copyright - whatthefoot - zboub gang</p>
-		    </footer>
+			<div class="col-6 mx-auto">
+				<footer>
+							________________________________________________________________________
+				            <p>copyright - whatthefoot - zboub gang</p>
+			    </footer>
+			</div>
 	    </div>
 
 	</body>

@@ -1,5 +1,5 @@
 
-<div class="col-7 mx-auto" id="map">
+<div class="col-6 mx-auto" id="map">
 
 //JavaScript permettant l'ajour d'une Google Map
 <script>
@@ -22,3 +22,5 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ1R_5j5_2AyvAkiyWTZr-s3j
 
                     
                 </div>
+
+

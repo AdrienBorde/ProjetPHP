@@ -40,9 +40,6 @@ if(isset($_POST['Inscription']))
         // Si tout est ok on enregistre le membre
         else
         {  // Enregistrement du membre dans la bdd
-            ajout_membre($_POST['pseudo'],$_POST['email'],$_POST['mdp']);
-            
-            $_SESSION['inscris'] = 'inscris';
-             
+            ajout_membre($_POST['pseudo'],$_POST['email'],$_POST['mdp']);             
         }      
 }
