@@ -191,6 +191,15 @@ ALTER TABLE `participant`
   ADD CONSTRAINT `participant_ibfk_2` FOREIGN KEY (`IdParticipant`) REFERENCES `client` (`idClient`);
 COMMIT;
 
+-- Créations de la table contenant les coordonnées pour la map
+CREATE TABLE `markers` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  `name` VARCHAR( 60 ) NOT NULL ,
+  `address` VARCHAR( 80 ) NOT NULL ,
+  `lat` FLOAT( 10, 6 ) NOT NULL ,
+  `lng` FLOAT( 10, 6 ) NOT NULL ,
+  `type` VARCHAR( 30 ) NOT NULL
+)
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
