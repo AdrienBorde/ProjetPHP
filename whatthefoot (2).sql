@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 09 jan. 2018 à 17:38
+-- Généré le :  mar. 09 jan. 2018 à 21:39
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -56,15 +56,17 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Numero` int(45) DEFAULT NULL,
   `Avatar` varchar(45) DEFAULT NULL,
   `Poste` varchar(45) DEFAULT NULL,
+  `Description` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`idClient`, `Pseudo`, `mdp`, `mail`, `Nom`, `Prenom`, `Birth`, `Ville`, `Rue`, `Numero`, `Avatar`, `Poste`) VALUES
-(7, 'nemboy', 'ez', 'nicolas@mail', 'Dang', 'Nicolas', '1996-01-24', 'Bailly', 'Rue de la sellotte', 25, NULL, 'Tout');
+INSERT INTO `client` (`idClient`, `Pseudo`, `mdp`, `mail`, `Nom`, `Prenom`, `Birth`, `Ville`, `Rue`, `Numero`, `Avatar`, `Poste`, `Description`) VALUES
+(7, 'nemboy', 'ez', 'nicolas@mail', 'Dang', 'Nicolas', '1996-01-24', 'Bailly', 'Rue de la sellotte', 25, '7', 'Tout', 'bonjour'),
+(8, 'adsy', 'h1z1', 'sama@mail', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
