@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 19 déc. 2017 à 15:38
+-- Généré le :  mar. 09 jan. 2018 à 17:38
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -36,15 +36,6 @@ CREATE TABLE IF NOT EXISTS `amis` (
   KEY `idAmi2` (`idAmi2`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `amis`
---
-
-INSERT INTO `amis` (`idAmi1`, `idAmi2`) VALUES
-(1, 2),
-(4, 2),
-(3, 4);
-
 -- --------------------------------------------------------
 
 --
@@ -57,18 +48,23 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Pseudo` varchar(45) NOT NULL,
   `mdp` varchar(45) NOT NULL,
   `mail` varchar(45) NOT NULL,
+  `Nom` varchar(45) DEFAULT NULL,
+  `Prenom` varchar(45) DEFAULT NULL,
+  `Birth` date DEFAULT NULL,
+  `Ville` varchar(45) DEFAULT NULL,
+  `Rue` varchar(45) DEFAULT NULL,
+  `Numero` int(45) DEFAULT NULL,
+  `Avatar` varchar(45) DEFAULT NULL,
+  `Poste` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`idClient`, `Pseudo`, `mdp`, `mail`) VALUES
-(1, 'AdsySama', 'h1z1', 'adsy.sama@mail.com'),
-(2, 'Saslyn10Messi', 'barcelone', 'Fctchoin@mail.com'),
-(3, 'YanguiDeNazareth', 'Yanguinho', 'yanguizer@mail.com'),
-(4, 'Kevinho', 'Eder', 'Porto16@mail.com');
+INSERT INTO `client` (`idClient`, `Pseudo`, `mdp`, `mail`, `Nom`, `Prenom`, `Birth`, `Ville`, `Rue`, `Numero`, `Avatar`, `Poste`) VALUES
+(7, 'nemboy', 'ez', 'nicolas@mail', 'Dang', 'Nicolas', '1996-01-24', 'Bailly', 'Rue de la sellotte', 25, NULL, 'Tout');
 
 -- --------------------------------------------------------
 
@@ -115,6 +111,23 @@ INSERT INTO `event` (`idEvent`, `Stade`, `Date`, `NomEvent`, `Stadecol`, `nbPart
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `markers`
+--
+
+DROP TABLE IF EXISTS `markers`;
+CREATE TABLE IF NOT EXISTS `markers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL,
+  `address` varchar(80) NOT NULL,
+  `lat` float(10,6) NOT NULL,
+  `lng` float(10,6) NOT NULL,
+  `type` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `participant`
 --
 
@@ -122,17 +135,9 @@ DROP TABLE IF EXISTS `participant`;
 CREATE TABLE IF NOT EXISTS `participant` (
   `IdEvent` int(11) NOT NULL,
   `IdParticipant` int(11) NOT NULL,
-  KEY `IdEvent` (`IdEvent`),
+  KEY `participant_ibfk_1` (`IdEvent`),
   KEY `IdParticipant` (`IdParticipant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `participant`
---
-
-INSERT INTO `participant` (`IdEvent`, `IdParticipant`) VALUES
-(1, 1),
-(1, 3);
 
 -- --------------------------------------------------------
 
@@ -167,8 +172,8 @@ INSERT INTO `stade` (`idStade`, `disponibilité`, `ville`, `adresse`, `nom`, `st
 -- Contraintes pour la table `amis`
 --
 ALTER TABLE `amis`
-  ADD CONSTRAINT `amis_ibfk_1` FOREIGN KEY (`idAmi1`) REFERENCES `client` (`idClient`),
-  ADD CONSTRAINT `amis_ibfk_2` FOREIGN KEY (`idAmi2`) REFERENCES `client` (`idClient`);
+  ADD CONSTRAINT `amis_ibfk_1` FOREIGN KEY (`idAmi1`) REFERENCES `client` (`idClient`) ON DELETE CASCADE,
+  ADD CONSTRAINT `amis_ibfk_2` FOREIGN KEY (`idAmi2`) REFERENCES `client` (`idClient`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `commentaire`
@@ -187,19 +192,10 @@ ALTER TABLE `event`
 -- Contraintes pour la table `participant`
 --
 ALTER TABLE `participant`
-  ADD CONSTRAINT `participant_ibfk_1` FOREIGN KEY (`IdEvent`) REFERENCES `event` (`idEvent`),
-  ADD CONSTRAINT `participant_ibfk_2` FOREIGN KEY (`IdParticipant`) REFERENCES `client` (`idClient`);
+  ADD CONSTRAINT `participant_ibfk_1` FOREIGN KEY (`IdEvent`) REFERENCES `event` (`idEvent`) ON DELETE CASCADE,
+  ADD CONSTRAINT `participant_ibfk_2` FOREIGN KEY (`IdParticipant`) REFERENCES `client` (`idClient`) ON DELETE CASCADE;
 COMMIT;
 
--- Créations de la table contenant les coordonnées pour la map
-CREATE TABLE `markers` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-  `name` VARCHAR( 60 ) NOT NULL ,
-  `address` VARCHAR( 80 ) NOT NULL ,
-  `lat` FLOAT( 10, 6 ) NOT NULL ,
-  `lng` FLOAT( 10, 6 ) NOT NULL ,
-  `type` VARCHAR( 30 ) NOT NULL
-)
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
