@@ -143,7 +143,7 @@ function listeEvent()
    $req = $bdd->prepare('SELECT idEvent, NomEvent, DateEvent, Stade, nbParticipant FROM event');
    $req->execute();
     ?>
-
+    <h4>Tous les évenements :</h4>
     <table>
 			<tr>
 				<th>Nom de l'évenement</th>
@@ -177,6 +177,82 @@ function listeEvent()
 			<?php
 					$req->closeCursor();
 					
+}
+
+function listeEventInscrit($idClient)
+{
+	$bdd = bdd();
+   //Préparation de la requete 
+   $req = $bdd->prepare('SELECT event.idEvent, NomEvent, DateEvent, Stade, nbParticipant FROM event
+   							INNER JOIN participant on event.idEvent = participant.IdEvent
+   							WHERE IdParticipant = "'. $idClient . '" ');
+   $req->execute();
+    ?>
+
+    <h4>Evènement où je suis inscrit :</h4>
+    <table>
+			<tr>
+				<th>Nom de l'évenement</th>
+				<th>Date évènement</th>
+				<th>Stade</th>
+				<th>Nombre de participants</th>
+				<th>Désinscription</th>
+			</tr>
+			
+			<?php 
+
+    //éxécution de la requete
+    while ($donnees = $req->fetch())
+	        	{       		
+			
+			echo "<tr>";
+			echo "<td>" . $donnees['NomEvent'] . "</td>";
+			echo "<td>" .$donnees['DateEvent'] . "</td>";
+			echo "<td>" .$donnees['Stade'] . "</td>";
+			echo "<td>" .$donnees['nbParticipant'] . "</td>";
+			echo "<td> <form action='pageEvent.php' method='post' id='desinscription'>
+							<input type='hidden' name='idEventDes' value='" .$donnees['idEvent'] . "' />
+							<input type='submit' value='Desinscription' name='desinscription'/>
+						</form> </td>" ;
+			echo "</tr>";
+
+			
+				} ?>
+
+	</table>
+			<?php
+					$req->closeCursor();
+					
+}
+
+function deja_inscrit($idClient,$idEvent){
+// se connecter à la base de donnée
+	$bdd = bdd();
+	$reponse = $bdd->query('SELECT IdParticipant FROM participant
+							WHERE IdEvent = "'. $idEvent .'" ');
+
+	while ($donnees = $reponse->fetch())
+	{
+	   if ($donnees['IdParticipant'] == $idClient)
+	   {
+	    return true;  
+	   }
+	   
+		    
+	}
+	return false;
+	$reponse->closeCursor();
+	}
+
+
+function desinscription($idClient,$idEvent) {
+	$bdd = bdd();
+    //Préparation de la requete 
+    $req = $bdd->prepare('DELETE FROM participant WHERE IdParticipant = "'. $idClient .'" AND IdEvent = "'. $idEvent .'" ');
+    
+    //éxécution de la requete
+    $req->execute();
+    $req->closeCursor();
 }
 
 ?>
