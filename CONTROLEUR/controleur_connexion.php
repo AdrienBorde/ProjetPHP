@@ -15,7 +15,7 @@
             setIdSession($_POST['pseudo']);
             setPseudoSession($_SESSION['id']);
             
-            echo "Salut " . $_SESSION['pseudo'];
+            
             }
             //si ils sont mauvais on active le message d'erreur sur la vue
             else   echo "mauvais pseudo ou mauvais mot de passe";
@@ -30,7 +30,7 @@
            $_SESSION = array();
 
            session_destroy();      
-           echo "session terminé";
+           
         }
     
 ?>

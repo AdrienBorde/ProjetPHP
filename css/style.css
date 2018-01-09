@@ -1,8 +1,15 @@
-#titre_principal, #menu, #banniere_image, #sug_event, #map, #sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript, #liste_amis {
+body, html {
+	height: 100%;
+	margin: 0px;
+	min-height: 100%;
+}
+
+#titre_principal, #menu, #banniere_image, #sug_event, #map, #sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript, #liste_amis, table, td, th, #amis, #profil {
 	border: 1px solid black;
 	margin: 10px;
 	padding: 10px;
 	text-align: center;
+	align-content: center;
 }
 
 
@@ -10,9 +17,8 @@
 	width: 150px;
 }
 
-#banniere_image {
-	width: 1600px;
-	height: 150px;
+#deconnexion {
+	width: 150px;
 }
 
 #menu ul, li {
@@ -36,4 +42,17 @@ footer {
 
 #dernier_match, #amis {
 	width: 500px;
+}
+
+table {
+border: medium solid #000000;
+width: 80%;
+}
+td, th {
+border: thin solid #6495ed;
+width: 50%;
+}
+
+#wtf {
+	width: 1583px;
 }

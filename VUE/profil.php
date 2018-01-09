@@ -10,7 +10,7 @@ if(isset($_pseudo))
 	$donnees = $reponse->fetch();
 }
 ?>
-	<div class="col-7 mx-auto" id="map">
+	<div class="col-7 mx-auto" id="profil">
            <?php 
            		//Si le pseudo existe , on va afficher les informations du profil
                 if(isset($donnees['Pseudo']) )
