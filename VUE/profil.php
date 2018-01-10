@@ -139,7 +139,7 @@ if(isset($_pseudo))
  
         $query=$bdd->prepare('UPDATE Client
         SET  Nom = :nom, Prenom =:prenom,Birth= :birth, Ville= :ville, Poste= :poste
-        WHERE pseudo="nemboy"');
+        WHERE pseudo="' .$donnees['Pseudo'].'"');
         $query->bindValue(':nom',$Nom,PDO::PARAM_STR);
         $query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
         $query->bindValue(':birth',$birth,PDO::PARAM_STR);
