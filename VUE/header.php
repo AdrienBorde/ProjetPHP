@@ -26,7 +26,7 @@
                                 <li><a href="
                                     <?php 
                                         if (isset($_SESSION['pseudo'])) 
-                                        echo "pageProfil.php?pseudo=" . $_SESSION['pseudo'] 
+                                        echo "pageProfil.php?pseudo=" . $_SESSION['pseudo'] ."&action=consulter"
                                         ?> 
 
                                         "> Mon Profil</a></li>

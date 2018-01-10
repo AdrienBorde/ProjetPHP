@@ -15,7 +15,7 @@ function listeAmis()
 	        	{
 	        		//à chaque ligne de la table , nous allons lire le pseudo de idAmi2
 			?>
-			<li>  <a href="<?php echo "pageProfil.php?pseudo=".$donnees['Pseudo'] ?>"> <?php echo $donnees['Pseudo'] ?>   </a></li>
+			<li>  <a href="<?php echo "pageProfil.php?pseudo=".$donnees['Pseudo']."&action=consulter" ?>"> <?php echo $donnees['Pseudo'] ?>   </a></li>
 			
 			<?php
 				}
