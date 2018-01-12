@@ -14,10 +14,10 @@
              <?php   }                         
                   ?>  </p>
          <?php if(isset($donnees['Avatar'])) { ?> 
-         <img src="img/avatar/<?php echo $donnees['Avatar'] ?>.png"  width="180px" height="130px"/>
+         <img src="img/avatar/<?php echo $donnees['Avatar'] ?>"  width="180px" height="130px"/>
          <?php }  else { ?>
 
-         <img src="img/avatar/avatar_defaut.png" width="180px" height="130px" /> <?php } ?>
+         <img src="img/avatar/0.png" width="180px" height="130px" /> <?php } ?>
           
           <p> Prénom : <?php if(isset($donnees['Prenom'])){
                                    echo $donnees['Prenom'];
