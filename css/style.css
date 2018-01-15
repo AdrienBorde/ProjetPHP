@@ -4,7 +4,9 @@ body, html {
 	min-height: 100%;
 }
 
-#titre_principal, #menu, #banniere_image, #sug_event, #map, #sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript, #liste_amis, table, td, th, #amis, #profil {
+#titre_principal, #menu, #banniere_image, #formevent, #sug_event, #map, 
+#sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript,
+ #liste_amis, table, td, th, #amis, #profil {
 	border: 1px solid black;
 	margin: 10px;
 	padding: 10px;

@@ -63,10 +63,17 @@ function ajouter_event($Stade,$DateEvent,$NomEvent,$StadeCol,$nbParticipant)
   
    $bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('INSERT INTO event(Stade,DateEvent,NomEvent,StadeCol,nbParticipant) VALUES(:Stade,:DateEvent,:NomEvent,:StadeCol,:nbParticipant)');
+   $req = $bdd->prepare('INSERT INTO `event`(`Stade`, `Date`, `NomEvent`, `Stadecol`, `nbParticipant`) VALUES (:Stade, :Date, :NomEvent, :Stadecol, :nbParticipant)');
     
     //éxécution de la requete
-    $req->execute(array('Stade' => $Stade,'DateEvent' => $DateEvent,'NomEvent' => $NomEvent ,'StadeCol' => $StadeCol ,'nbParticipant' => $nbParticipant));
+    $req->execute(array(
+    'Stade' => $Stade,
+    'Date' => $DateEvent,
+    'NomEvent' => $NomEvent,
+    'Stadecol' => $StadeCol,
+    'nbParticipant' => $nbParticipant
+    ));
+
     $req->closeCursor();
 }
 
@@ -140,7 +147,7 @@ function listeEvent()
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('SELECT idEvent, NomEvent, DateEvent, Stade, nbParticipant FROM event');
+   $req = $bdd->prepare('SELECT idEvent, NomEvent, Date, Stade, nbParticipant FROM event');
    $req->execute();
     ?>
     <h4>Tous les évenements :</h4>
@@ -161,7 +168,7 @@ function listeEvent()
 			
 			echo "<tr>";
 			echo "<td>" . $donnees['NomEvent'] . "</td>";
-			echo "<td>" .$donnees['DateEvent'] . "</td>";
+			echo "<td>" .$donnees['Date'] . "</td>";
 			echo "<td>" .$donnees['Stade'] . "</td>";
 			echo "<td>" .$donnees['nbParticipant'] . "</td>";
 			echo "<td> <form action='pageEvent.php' method='post' id='eventinscription'>
@@ -183,7 +190,7 @@ function listeEventInscrit($idClient)
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('SELECT event.idEvent, NomEvent, DateEvent, Stade, nbParticipant FROM event
+   $req = $bdd->prepare('SELECT event.idEvent, NomEvent, Date, Stade, nbParticipant FROM event
    							INNER JOIN participant on event.idEvent = participant.IdEvent
    							WHERE IdParticipant = "'. $idClient . '" ');
    $req->execute();
@@ -207,7 +214,7 @@ function listeEventInscrit($idClient)
 			
 			echo "<tr>";
 			echo "<td>" . $donnees['NomEvent'] . "</td>";
-			echo "<td>" .$donnees['DateEvent'] . "</td>";
+			echo "<td>" .$donnees['Date'] . "</td>";
 			echo "<td>" .$donnees['Stade'] . "</td>";
 			echo "<td>" .$donnees['nbParticipant'] . "</td>";
 			echo "<td> <form action='pageEvent.php' method='post' id='desinscription'>
@@ -254,5 +261,36 @@ function desinscription($idClient,$idEvent) {
     $req->execute();
     $req->closeCursor();
 }
+
+
+function listeStade() {
+	$bdd = bdd();
+   //Préparation de la requete 
+   $req = $bdd->prepare('SELECT nom FROM stade');
+   $req->execute();
+   ?>
+   <select name="stade">
+
+   	<?php
+   while ($donnees = $req->fetch())
+	        	{       
+					echo "<option name=" .$donnees['nom']. ">" .$donnees['nom'].  "</option>";
+	        	}
+	        	?>
+	</select> <?php
+
+}
+
+function getStadeid($nomstade) {
+	$bdd = bdd();
+
+	$reponse = $bdd->query('SELECT `idStade` FROM `stade` WHERE `nom` = "'.$nomstade.'" ');
+
+	while ($donnees = $reponse->fetch())
+	{
+	   return $donnees['idStade'];
+	   }
+	}
+
 
 ?>

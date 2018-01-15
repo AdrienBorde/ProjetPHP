@@ -26,6 +26,11 @@ if (isset($_SESSION['id'])) {
 	require('vue/event.php');
 }
 
+if(isset($_POST['creationevent'])) 
+{
+	require('vue/creationevent.php');
+}
+
 require('vue/footer.php');
 
 ?>

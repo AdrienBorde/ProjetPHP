@@ -3,11 +3,18 @@ if(isset($_SESSION['id']))
 ?>
 
 <div class="row">
-	<div class="col-7 offset-3" id="event">
-           <?php listeEvent(); 
+	
+	<div class="col-1 offset-1 mx-auto" id="boutoncreationevent">
+		<form action="pageEvent.php" method="post">
+			<input type="submit" value="Créer un event" name="creationevent">
+		</form>		
+	</div>
 
-                 listeEventInscrit(7);
-            
+	<div class="col-7 mx-auto" id="event">
+           <?php 
+           		 listeEvent(); 
+                 listeEventInscrit($_SESSION['id']);
+
             ?>
 	</div>
 </div>
