@@ -31,6 +31,14 @@ if(isset($_POST['creationevent']))
 	require('vue/creationevent.php');
 }
 
+if(isset($_POST['modifierevent'])) 
+{
+	$_SESSION['ideventmodif'] = $_GET['idEventMod'];
+	require('vue/modifierevent.php');
+}
+
 require('vue/footer.php');
+
+
 
 ?>

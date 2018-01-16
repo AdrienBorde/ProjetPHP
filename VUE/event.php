@@ -14,7 +14,7 @@ if(isset($_SESSION['id']))
            <?php 
            		 listeEvent(); 
                  listeEventInscrit($_SESSION['id']);
-
+                 listeEventCreer($_SESSION['id']);
             ?>
 	</div>
 </div>

@@ -58,16 +58,17 @@ function getnbParticipantEvent($idevent) {
 
 
 
-function ajouter_event($Stade,$DateEvent,$NomEvent,$StadeCol,$nbParticipant)
+function ajouter_event($Stade,$idCreateur,$DateEvent,$NomEvent,$StadeCol,$nbParticipant)
 {   //se connecter à la base de donnée
   
    $bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('INSERT INTO `event`(`Stade`, `Date`, `NomEvent`, `Stadecol`, `nbParticipant`) VALUES (:Stade, :Date, :NomEvent, :Stadecol, :nbParticipant)');
+   $req = $bdd->prepare('INSERT INTO `event`(`Stade`, `idCreateur`, `Date`, `NomEvent`, `Stadecol`, `nbParticipant`) VALUES (:Stade, :idCreateur, :Date, :NomEvent, :Stadecol, :nbParticipant)');
     
     //éxécution de la requete
     $req->execute(array(
     'Stade' => $Stade,
+    'idCreateur' => $idCreateur,
     'Date' => $DateEvent,
     'NomEvent' => $NomEvent,
     'Stadecol' => $StadeCol,
@@ -92,7 +93,7 @@ function setNomEvent($idEvent,$NomEventChange)
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('UPDATE event SET NomEvent = $NomEventChange WHERE idEvent = $idEvent');
+   $req = $bdd->prepare('UPDATE event SET NomEvent = "' .$NomEventChange. '" WHERE idEvent = "' .$idEvent. '" ');
     
     //éxécution de la requete
     $req->execute();
@@ -103,7 +104,7 @@ function setDateEvent($idEvent,$DateEventChange)
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('UPDATE event SET DateEvent = $DateEventChange WHERE idEvent = $idEvent');
+   $req = $bdd->prepare('UPDATE event SET DateEvent = "' .$DateEventChange. '" WHERE idEvent = "' .$idEvent. '" ');
     
     //éxécution de la requete
     $req->execute();
@@ -114,7 +115,7 @@ function setStadeEvent($idEvent,$StadeEventChange)
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('UPDATE event SET Stade = $StadeEventChange WHERE idEvent = $idEvent');
+   $req = $bdd->prepare('UPDATE event SET Stade = "' .$StadeEventChange. '" WHERE idEvent = "' .$idEvent. '" ');
     
     //éxécution de la requete
     $req->execute();
@@ -125,7 +126,7 @@ function setParticipantEvent($idEvent,$ParticipantEventChange)
 {
 	$bdd = bdd();
    //Préparation de la requete 
-   $req = $bdd->prepare('UPDATE event SET nbParticipant = $ParticipantEventChange WHERE idEvent = $idEvent');
+   $req = $bdd->prepare('UPDATE event SET nbParticipant = "' .$ParticipantEventChange. '" WHERE idEvent = "' .$idEvent. '" ');
     
     //éxécution de la requete
     $req->execute();
@@ -169,7 +170,7 @@ function listeEvent()
 			echo "<tr>";
 			echo "<td>" . $donnees['NomEvent'] . "</td>";
 			echo "<td>" .$donnees['Date'] . "</td>";
-			echo "<td>" .$donnees['Stade'] . "</td>";
+			echo "<td>" .getStadeNom($donnees['Stade']) . "</td>";
 			echo "<td>" .$donnees['nbParticipant'] . "</td>";
 			echo "<td> <form action='pageEvent.php' method='post' id='eventinscription'>
 							<input type='hidden' name='idEvent' value='" .$donnees['idEvent'] . "' />
@@ -215,11 +216,57 @@ function listeEventInscrit($idClient)
 			echo "<tr>";
 			echo "<td>" . $donnees['NomEvent'] . "</td>";
 			echo "<td>" .$donnees['Date'] . "</td>";
-			echo "<td>" .$donnees['Stade'] . "</td>";
+			echo "<td>" .getStadeNom($donnees['Stade']) . "</td>";
 			echo "<td>" .$donnees['nbParticipant'] . "</td>";
 			echo "<td> <form action='pageEvent.php' method='post' id='desinscription'>
 							<input type='hidden' name='idEventDes' value='" .$donnees['idEvent'] . "' />
 							<input type='submit' value='Desinscription' name='desinscription'/>
+						</form> </td>" ;
+			echo "</tr>";
+
+			
+				} ?>
+
+	</table>
+			<?php
+					$req->closeCursor();
+					
+}
+
+
+function listeEventCreer($idClient)
+{
+	$bdd = bdd();
+   //Préparation de la requete 
+   $req = $bdd->prepare('SELECT idEvent, NomEvent, Date, Stade, nbParticipant FROM event
+   							INNER JOIN client on idCreateur = idClient
+   							WHERE client.idClient = "'. $idClient . '" ');
+   $req->execute();
+    ?>
+
+    <h4>Evènement que j'ai créée :</h4>
+    <table>
+			<tr>
+				<th>Nom de l'évenement</th>
+				<th>Date évènement</th>
+				<th>Stade</th>
+				<th>Nombre de participants</th>
+				<th>Modifier</th>
+			</tr>
+			
+			<?php 
+
+    //éxécution de la requete
+    while ($donnees = $req->fetch())
+	        	{       		
+			
+			echo "<tr>";
+			echo "<td>" . $donnees['NomEvent'] . "</td>";
+			echo "<td>" .$donnees['Date'] . "</td>";
+			echo "<td>" . getStadeNom($donnees['Stade']) . "</td>";
+			echo "<td>" .$donnees['nbParticipant'] . "</td>";
+			echo "<td> <form action='pageEvent.php?idEventMod=" . $donnees['idEvent']. "' method='post' id='desinscription'>
+							<input type='submit' value='Modifier' name='modifierevent'/>
 						</form> </td>" ;
 			echo "</tr>";
 
@@ -292,5 +339,25 @@ function getStadeid($nomstade) {
 	   }
 	}
 
+function getStadeNom($idstade) {
+	$bdd = bdd();
+
+	$reponse = $bdd->query('SELECT `nom` FROM `stade` WHERE `idStade` = "'.$idstade.'" ');
+
+	while ($donnees = $reponse->fetch())
+	{
+	   return $donnees['nom'];
+	   }
+	}
+
+
+
+function modifier_event($Stade,$idEvent,$DateEvent,$NomEvent,$StadeCol,$nbParticipant) {
+	setStadeEvent($idEvent, $Stade);
+	setDateEvent($idEvent, $DateEvent);
+	setNomEvent($idEvent, $NomEvent);
+	setParticipantEvent($idEvent, $nbParticipant);
+}
+	
 
 ?>
