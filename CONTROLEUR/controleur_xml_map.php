@@ -1,44 +1,51 @@
 <?php
+downloadUrl('/CONTROLEUR/xml_parser.php', function(data)) {
+  var xml = data.responseXML;
+  var markers = xml.documentElement.getElementsByTagName('marker');
+  Array.prototype.forEach.call(markers, function(markerElem) {
+    var name = markerElem.getAttribute('name');
+    var address = markerElem.getAttribute('address');
+    var type = markerElem.getAttribute('type');
+    var point = new google.maps.LatLng(
+        parseFloat(markerElem.getAttribute('lat')),
+        parseFloat(markerElem.getAttribute('lng')));
 
-// Connexion Ã  la base de donnÃ©es
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
+    var infowincontent = document.createElement('div');
+    var strong = document.createElement('strong');
+    strong.textContent = name
+    infowincontent.appendChild(strong);
+    infowincontent.appendChild(document.createElement('br'));
+
+    var text = document.createElement('text');
+    text.textContent = address
+    infowincontent.appendChild(text);
+    var icon = customLabel[type] || {};
+    var marker = new google.maps.Marker({
+      map: map,
+      position: point,
+      label: icon.label
+    });
+    marker.addListener('click', function() {
+      infoWindow.setContent(infowincontent);
+      infoWindow.open(map, marker);
+    });
+
+function downloadUrl(url,callback) {
+ var request = window.ActiveXObject ?
+     new ActiveXObject('Microsoft.XMLHTTP') :
+     new XMLHttpRequest;
+
+ request.onreadystatechange = function() {
+   if (request.readyState == 4) {
+     request.onreadystatechange = doNothing;
+     callback(request, request.status);
+   }
+ };
+
+ request.open('GET', url, true);
+ request.send(null);
 }
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
 
-//Crée un fichier XML et le noeud parent
-$doc = new DOMDocument("1.0");
-$node = $doc->createElement("markers");
-$parnode = $doc->appendChild($node);
-
-// Selectionne toutes les lignes dans la table stade
-$query = "SELECT * FROM stade WHERE 1";
-$result = mysql_query($query);
-if (!$result) {
-  die('Invalid query: ' . mysql_error());
-}
-
-header("Content-type: text/xml");
-
-// Iterate through the rows, adding XML nodes for each
-while ($row = @mysql_fetch_assoc($result)){
-  // ADD TO XML DOCUMENT NODE
-  $node = $doc->createElement("marker");
-  $newnode = $parnode->appendChild($node);
-
-  $newnode->set_attribute("name", $row['name']);
-  $newnode->set_attribute("address", $row['address']);
-  $newnode->set_attribute("lat", $row['lat']);
-  $newnode->set_attribute("lng", $row['lng']);
-  $newnode->set_attribute("type", $row['type']);
-}
-
-echo $doc->saveXML();
-
-
+function doNothing() {}
 
 ?>

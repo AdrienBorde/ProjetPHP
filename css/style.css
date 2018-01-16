@@ -4,7 +4,7 @@ body, html {
 	min-height: 100%;
 }
 
-#titre_principal, #menu, #banniere_image, #formevent, #sug_event, #map, 
+#menu, #banniere_image, #formevent, #sug_event, #map, 
 #sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript,
  #liste_amis, table, td, th, #amis, #profil {
 	border: 1px solid black;
@@ -12,8 +12,21 @@ body, html {
 	padding: 10px;
 	text-align: center;
 	align-content: center;
+	color: white;
 }
 
+#titre_principal
+{
+	text-align: center;
+	align-content: center;
+	color: white;
+	padding-top: 40px;
+}
+
+header
+{
+	background-color: green;
+}
 
 #inscript {
 	width: 150px;
@@ -56,5 +69,5 @@ width: 50%;
 }
 
 #wtf {
-	width: 1583px;
+	width: 100%;
 }

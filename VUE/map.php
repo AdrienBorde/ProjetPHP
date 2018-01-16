@@ -3,18 +3,20 @@
 
 //JavaScript permettant l'ajour d'une Google Map
 <script>
+		var customLabel = {
+		Football: {
+			label: 'Football'
+		}
+	};
+
 	function initMap() {
-		var uluru = {lat: 48.8407, lng: 2.59904};
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 18,
-			center: uluru
-
+			center: new google.maps.LatLng(43.27, 5.395)
           });
-			var marker = new google.maps.Marker({
-				position: uluru,
-				map: map
-			});
 	}
+
+require('/CONTROLEUR/controleur_xml_map.php')
 </script>
 
 <script async defer
