@@ -4,16 +4,27 @@ if(isset($_POST['eventinscription']))
 {
 	if(!deja_inscrit($_SESSION['id'],$_POST['idEvent']))
 	{
-		inscriptionEvent($_SESSION['id'],$_POST['idEvent']);
+		
+		if(!eventcomplet($_POST['idEvent']))
+			{
+					inscriptionEvent($_SESSION['id'],$_POST['idEvent']);
+				}
+		else {echo "event complet";}
+		
 	}
+	
 	else {echo "déjà inscris";}
 }
+
+
+
 
 if(isset($_POST['desinscription'])) 
 {
 	desinscription($_SESSION['id'],$_POST['idEventDes']);
 	
 }
+
 
 
 if(isset($_POST['eventcreer'])) 
@@ -25,7 +36,11 @@ if(isset($_POST['eventcreer']))
 	'null',
 	$_POST['nbparticipant']);
 
+	inscriptionEvent($_SESSION['id'],getIdEvent($_POST['nomevent'], date_format(date_create($_POST['date']), "Y/m/d H:i")));
+
 }
+
+
 
 if(isset($_POST['eventmodif'])) 
 {
@@ -36,6 +51,14 @@ if(isset($_POST['eventmodif']))
     'null',
     $_POST['nbparticipantmodif']);
 
+}
+
+
+
+if(isset($_POST['supprimerevent'])) 
+{
+	supprimer_event($_POST['idEvent']);
+	
 }
 
 ?>
