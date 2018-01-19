@@ -1,23 +1,30 @@
            <?php 
            		//Si le pseudo existe , on va afficher les informations du profil
-                if(isset($donnees['Pseudo']) )
-                {
+                
 	       ?>
 					<p> Profil de <?php echo $donnees['Pseudo']    ;   
                    //Permet de voir si vous etes sur votre profil pour pouvoir le modifier aprés si besoin 
                 if(strcmp($donnees['Pseudo'], $_SESSION['pseudo']) == 0)
                 {
                   ?> <a href="<?php echo "pageProfil.php?pseudo=" . $donnees['Pseudo'] ."&action=modifier"?> ">
+                  <img src="css/img/reglage.jpg" alt= "modifier votre profil" width="30px" height="30px"></a>
+                
 
+             <?php   }else 
+                      { ?>
 
-                  <img src="img/reglage.jpg" alt= "modifier votre profil" width="30px" height="30px"></a>
-             <?php   }                         
-                  ?>  </p>
-         <?php if(isset($donnees['Avatar'])) { ?> 
-         <img src="img/avatar/<?php echo $donnees['Avatar'] ?>"  width="180px" height="130px"/>
+                        <a href="<?php echo "pageProfil.php?pseudo=" . $donnees['Pseudo'] ."&action=ajouter"?> ">                       
+                        <img src='css/img/ajouter.jpg'alt='Suivre cette personne' width='30px' height='30px'></a>
+                        <?php
+                      }                       
+                  echo "</p>";
+        
+         //Permet de vérifier que vous avez déjà mis une photo de profil
+          if(isset($donnees['Avatar'])) { ?> 
+         <img src="css/img/avatar/<?php echo $donnees['Avatar'] ?>"  width="180px" height="130px"/>
          <?php }  else { ?>
 
-         <img src="img/avatar/0.png" width="180px" height="130px" /> <?php } ?>
+         <img src="css/img/avatar/0.png" width="180px" height="130px" /> <?php } ?>
           
           <p> Prénom : <?php if(isset($donnees['Prenom'])){
                                    echo $donnees['Prenom'];
@@ -65,19 +72,4 @@
                                     echo "il n'y a pas de description";
                                   }
             ?></p>
-
-          
-
-
-
-
-          <?php
-
-                }
-                else
-                	// on affiche un message d'erreur nous expliquant que le profil n'existe pas 
-                { ?>
-                	<p> Ce profil n'existe pas </p>
-           <?php
-                }
-           ?>
+              

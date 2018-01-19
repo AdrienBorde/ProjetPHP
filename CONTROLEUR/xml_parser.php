@@ -23,6 +23,13 @@ return $xmlStr;
 // Selectionne toutes les lignes dans la table stade
 $req = $bdd->query("SELECT * FROM markers");
 
+$filename="../CONTROLEUR/marker.xml";
+if (file_exists($filename)) {
+	unlink($filename)
+} 
+else {
+	echo "Le fichier xml n'existe pas";
+}
 
 header("Content-type: text/xml");
 

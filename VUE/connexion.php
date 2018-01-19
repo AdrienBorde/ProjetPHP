@@ -1,9 +1,7 @@
                     <div class="col-4 mx-auto">
                         <form action="index.php" method="post" id="connexion">
-                            Pseudo : 
-                            <input type="text" name="pseudo"><br/>
-                            Mot de passe :
-                            <input type="password" name="mdp"><br/>
+                            Pseudo : <input type="text" name="pseudo">
+                            Mot de passe : <input type="password" name="mdp">
                             <input type="submit" name="connexion" value="Valider">
                         </form>
                         

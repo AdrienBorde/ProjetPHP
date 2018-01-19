@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 09 jan. 2018 à 21:39
+-- Généré le :  ven. 19 jan. 2018 à 08:39
 -- Version du serveur :  5.7.19
--- Version de PHP :  7.1.9
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -118,14 +118,23 @@ INSERT INTO `event` (`idEvent`, `Stade`, `Date`, `NomEvent`, `Stadecol`, `nbPart
 
 DROP TABLE IF EXISTS `markers`;
 CREATE TABLE IF NOT EXISTS `markers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL,
   `address` varchar(80) NOT NULL,
   `lat` float(10,6) NOT NULL,
   `lng` float(10,6) NOT NULL,
   `type` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
+  UNIQUE KEY `PRIMARY KEY` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `markers`
+--
+
+INSERT INTO `markers` (`name`, `address`, `lat`, `lng`, `type`) VALUES
+('Vélodrome', '5 rue des allouettes', 43.270000, 5.395000, 'Football'),
+('Parc des Princes', '5 rue des tanches', 48.830002, 2.253000, 'Football'),
+('La Meinau', '5 Rue Tunnel Inc', 48.556000, 7.752900, 'Football'),
+('Jounaid Stadium', '5 Rue Tunnel Inc', 48.841000, 2.599100, 'Football');
 
 -- --------------------------------------------------------
 

@@ -16,6 +16,11 @@ if(isset($_pseudo))
 	<div class="col-7 mx-auto" id="profil">
         
       <?php  
+      if(isset($donnees['Pseudo']))
+
+      {
+
+
         switch($_action)
         { 
           //Selon l'action que l'on veut , nous allons soit modifier soit consulter le profil
@@ -24,10 +29,23 @@ if(isset($_pseudo))
           break;
           case "modifier":
           require('VUE/profil/profil_modifier.php');
-           break;
+          break;
+          case "ajouter":
+          require('VUE/profil/profil_ajouter.php');
+          break;
+
+          
+         }
 
 
+
+
+        
+      }
+        else {
+          echo "ce pseudo n'existe pas ";
         }
+$reponse->closeCursor();
 
 
 
