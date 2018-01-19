@@ -9,11 +9,15 @@ if(isset($_POST['eventinscription']))
 			{
 					inscriptionEvent($_SESSION['id'],$_POST['idEvent']);
 				}
-		else {echo "event complet";}
+		else {echo '<script>
+					alert("Désolé, l\'évènement est complet ");
+				</script>';}
 		
 	}
 	
-	else {echo "déjà inscris";}
+	else {echo '<script>
+					alert("Vous êtes déjà inscrit");
+				</script>';}
 }
 
 
