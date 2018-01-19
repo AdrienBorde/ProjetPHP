@@ -36,6 +36,19 @@
                                         echo "pageEvent.php"
                                         ?> 
                                     ">Evenements</a></li>
+                                <li><a href="
+                                        <?php 
+                                        if (isset($_SESSION['pseudo'])) 
+                                        echo "xml_parser.php"
+                                        ?> 
+                                    ">Mise à jour</a></li>
+                                <li><a href="
+                                        <?php 
+                                        if (isset($_SESSION['pseudo'])) 
+                                        echo "marker.xml"
+                                        ?> 
+                                    ">XML Stade</a></li>
+
                                 <li><a href="#">A propos</a></li>
                             </ul>
                         </nav>

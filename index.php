@@ -28,7 +28,7 @@ if (isset($_SESSION['id'])) {
 
 require('vue/sug_events.php');
 require('vue/map.php');
-require('vue/marker.xml');
+
 require('vue/sug_amis.php');
 
 require('vue/derniermatch.php');
