@@ -43,7 +43,7 @@
               <label><input type="checkbox" name="delete" value="Delete" />
               Supprimer l'avatar</label><br />
               Avatar actuel :
-              <img src="img/avatar/<?php echo $donnees['Avatar']?>"
+              <img src="css/img/avatar/<?php echo $donnees['Avatar']?>"
               width="180px" height="130px" alt="pas d avatar" /><br /><br />
 
              <label for="descritption">Description :</label><br />
@@ -113,7 +113,7 @@
           // on vérifie que le fichier a été bien upload , puis nous le mettons dans le dossier issus à cet effet et nous changeons le nom du fichier
             if(!(empty($_FILES['avatar']['tmp_name'])))
             {
-            $uploaddir = 'img/avatar/';
+            $uploaddir = 'css/img/avatar/';
             $uploadfile = $uploaddir . basename($nomavatar);
             if (move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadfile)) {
                 echo "Le fichier est valide, et a été téléchargé
