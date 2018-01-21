@@ -5,7 +5,7 @@ body, html {
 }
 
 #menu, #banniere_image, #formevent, #sug_event, #map, 
-#sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript,
+#sug_amis, #chatgen, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript,
  #liste_amis, table, td, th, #amis, #profil, #formmodifevent {
 	border: 1px solid black;
 	margin: 10px;
@@ -46,7 +46,7 @@ header
 	height: 600px;
 }
 
-#sug_event, #sug_amis {
+#sug_event, #sug_amis, #chatgen {
 	height: 400px;
 }
 
