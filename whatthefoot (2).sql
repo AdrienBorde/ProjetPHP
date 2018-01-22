@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 19 jan. 2018 à 08:39
+-- Généré le :  Dim 21 jan. 2018 à 18:58
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -36,6 +36,43 @@ CREATE TABLE IF NOT EXISTS `amis` (
   KEY `idAmi2` (`idAmi2`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `amis`
+--
+
+INSERT INTO `amis` (`idAmi1`, `idAmi2`) VALUES
+(7, 8),
+(7, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chatgen`
+--
+
+DROP TABLE IF EXISTS `chatgen`;
+CREATE TABLE IF NOT EXISTS `chatgen` (
+  `idMessage` int(11) NOT NULL AUTO_INCREMENT,
+  `Pseudo` varchar(45) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  PRIMARY KEY (`idMessage`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `chatgen`
+--
+
+INSERT INTO `chatgen` (`idMessage`, `Pseudo`, `message`) VALUES
+(1, 'bot', 'premier message'),
+(2, 'nemboy', 'test'),
+(3, 'nemboy', 'bonjour'),
+(4, 'nemboy', 'kek'),
+(5, 'adsy', 'enchanté'),
+(6, 'adsy', 'trop ez'),
+(7, 'adsy', 'facile le php'),
+(8, 'nemboy', 'naze'),
+(9, 'nemboy', 'bijour');
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Poste` varchar(45) DEFAULT NULL,
   `Description` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idClient`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
@@ -66,7 +103,8 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 INSERT INTO `client` (`idClient`, `Pseudo`, `mdp`, `mail`, `Nom`, `Prenom`, `Birth`, `Ville`, `Rue`, `Numero`, `Avatar`, `Poste`, `Description`) VALUES
 (7, 'nemboy', 'ez', 'nicolas@mail', 'Dang', 'Nicolas', '1996-01-24', 'Bailly', 'Rue de la sellotte', 25, '7', 'Tout', 'bonjour'),
-(8, 'adsy', 'h1z1', 'sama@mail', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(8, 'adsy', 'h1z1', 'sama@mail', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'YanguiDeNazareth', 'fdp', 'franck@mondos', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -183,8 +221,8 @@ INSERT INTO `stade` (`idStade`, `disponibilité`, `ville`, `adresse`, `nom`, `st
 -- Contraintes pour la table `amis`
 --
 ALTER TABLE `amis`
-  ADD CONSTRAINT `amis_ibfk_1` FOREIGN KEY (`idAmi1`) REFERENCES `client` (`idClient`) ON DELETE CASCADE,
-  ADD CONSTRAINT `amis_ibfk_2` FOREIGN KEY (`idAmi2`) REFERENCES `client` (`idClient`) ON DELETE CASCADE;
+  ADD CONSTRAINT `amis_ibfk_1` FOREIGN KEY (`idAmi2`) REFERENCES `client` (`idClient`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `amis_ibfk_2` FOREIGN KEY (`idAmi1`) REFERENCES `client` (`idClient`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `commentaire`
