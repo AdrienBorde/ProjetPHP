@@ -61,8 +61,9 @@ if(isset($_POST['eventmodif']))
 
 if(isset($_POST['supprimerevent'])) 
 {
+
 	supprimer_event($_POST['idEvent']);
-	
+		
 }
 
 ?>

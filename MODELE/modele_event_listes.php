@@ -37,7 +37,7 @@ function listeEvent()
 
 			echo "<td> <form action='pageEvent.php' method='post' id='eventinscription'>
 							<input type='hidden' name='idEvent' value='" .$donnees['idEvent'] . "' />
-							<input class='insc btn btn-primary' type='submit' value='Inscription' name='eventinscription'/>
+							<input class='btn btn-primary' type='submit' value='Inscription' name='eventinscription'/>
 						</form> </td>" ;
 			echo "</tr>";
 
@@ -136,11 +136,11 @@ function listeEventCreer($idClient)
 			echo "<td>" . getStadeNom($donnees['Stade']) . "</td>";
 			echo "<td>"  .nombreInscrits($donnees['idEvent']). "/"  .$donnees['nbParticipant'] . "</td>";
 			echo "<td> <form action='pageEvent.php?idEventMod=" . $donnees['idEvent']. "' method='post' id='desinscription'>
-							<input type='submit' value='Modifier' name='modifierevent'/>
+							<input class='btn btn-primary' type='submit' value='Modifier' name='modifierevent'/>
 						</form> </td>" ;
-			echo "<td> <form action='pageEvent.php' method='post' id='supprimerevent'>
+			echo "<td> <form action='pageEvent.php' method='post' id='supprimerevent' >
 							<input type='hidden' name='idEvent' value='" .$donnees['idEvent'] . "' />
-							<input type='submit' value='Supprimer' name='supprimerevent'/>
+							<input class='btn btn-primary' type='submit' value='Supprimer' name='supprimerevent'/>
 						</form> </td>" ;
 
 			echo "</tr>";
