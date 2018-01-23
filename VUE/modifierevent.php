@@ -3,9 +3,9 @@
 		Nom de l'event :
 		<input type="text" name="nommodifevent" id="nommodifevent"> </br>
 		Date :
-		<input type="datetime-local" name="datemodif" id="datemodif"> </br>
+		<input type="datetime-local" name="datemodif" id="datemodif" min="2018-01-01T00:00" max="2025-12-31T00:00"> </br>
 		Nombre de participant :
-		<input type="number" name="nbparticipantmodif" id="nbparticipantmodif"> </br>
+		<input type="number" name="nbparticipantmodif" id="nbparticipantmodif" min="1" max="22"> </br>
 
 		<?php listeStade(); ?> </br>
 		

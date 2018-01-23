@@ -3,12 +3,13 @@
 		Nom de l'event :
 		<input type="text" name="nomevent" id="nomevent"> </br>
 		Date :
-		<input type="datetime-local" name="date" id="date"> </br>
+		<input class="min-today" id="min" name="date" type="datetime-local" placeholder="YYYY-MM-DD" data-date-split-input="true" min="2018-01-01T00:00" max="2025-12-31T00:00" /> </br>
 		Nombre de participant :
-		<input type="number" name="nbparticipant" id="nbparticipant"> </br>
+		<input type="number" name="nbparticipant" id="nbparticipant" min="1" max="22"> </br>
 
 		<?php listeStade(); ?> </br>
 
 		<input type="submit" value="Créer" name="eventcreer" id="eventcreer">
 	</form>
 </div>
+
