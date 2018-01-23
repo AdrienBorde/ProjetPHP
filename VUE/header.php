@@ -28,7 +28,7 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="<?php 
                                         if (isset($_SESSION['pseudo'])) 
-                                        echo "pageProfil.php?pseudo=" . $_SESSION['pseudo'] ."&action=consulter"
+                                        echo "pageProfil.php?pseudo=" . $_SESSION['pseudo']
                                         ?> ">Mon Profil</a>
 			      </li>
 			      <li class="nav-item">
@@ -53,8 +53,8 @@
 			        <a class="nav-link " href="#">A propos</a>
 			      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
-			      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+		    <form class="form-inline my-2 my-lg-0"   >
+			      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="pseudo">
 			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		    </form>
 	  </div>

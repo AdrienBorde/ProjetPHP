@@ -123,31 +123,7 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   KEY `Expediteur` (`Expediteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `event`
---
-
-DROP TABLE IF EXISTS `event`;
-CREATE TABLE IF NOT EXISTS `event` (
-  `idEvent` int(11) NOT NULL AUTO_INCREMENT,
-  `idCreateur` int(11) NOT NULL,
-  `Stade` int(11) NOT NULL,
-  `Date` datetime NOT NULL,
-  `NomEvent` varchar(45) NOT NULL,
-  `Stadecol` varchar(45) NOT NULL,
-  `nbParticipant` int(11) NOT NULL,
-  PRIMARY KEY (`idEvent`),
-  KEY `Stade` (`Stade`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `event`
---
-
-INSERT INTO `event` (`idEvent`, 8, `Stade`, `Date`, `NomEvent`, `Stadecol`, `nbParticipant`) VALUES
-(1, 1, '2017-12-28 08:09:12', 'Foot Des Bros', '', 5);
 
 -- --------------------------------------------------------
 
@@ -213,6 +189,33 @@ CREATE TABLE IF NOT EXISTS `stade` (
 INSERT INTO `stade` (`idStade`, `disponibilité`, `ville`, `adresse`, `nom`, `stadecol`) VALUES
 (1, 0, 'Noisy Champs', '11 Rue Parc Des Princes', 'Jounaid Stadium', ''),
 (2, 0, 'Marseille', '13 Rue des Sardines', 'Velodrome ', '');
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `idEvent` int(11) NOT NULL AUTO_INCREMENT,
+  `idCreateur` int(11) NOT NULL,
+  `Stade` int(11) NOT NULL,
+  `Date` datetime NOT NULL,
+  `NomEvent` varchar(45) NOT NULL,
+  `Stadecol` varchar(45) NOT NULL,
+  `nbParticipant` int(11) NOT NULL,
+  PRIMARY KEY (`idEvent`),
+  KEY `Stade` (`Stade`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `event`
+--
+
+INSERT INTO `event` (`idEvent`, 8, `Stade`, `Date`, `NomEvent`, `Stadecol`, `nbParticipant`) VALUES
+(1, 1, '2017-12-28 08:09:12', 'Foot Des Bros', '', 5);
 
 --
 -- Contraintes pour les tables déchargées
