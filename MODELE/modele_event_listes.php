@@ -186,7 +186,7 @@ function listeParticipant($idevent) {
 	        	{
 	        		//à chaque ligne de la table , nous allons lire le pseudo de idAmi2
 			
-			$array[$i] =  '<li> <a href="pageProfil.php?pseudo=' .getPseudo($donnees['IdParticipant']). '&action=consulter ">' .getPseudo($donnees['IdParticipant']). '</a> </li>' ;
+			$array[$i] =  '<li> <a href="pageProfil.php?pseudo=' .getPseudo($donnees['IdParticipant']). '">' .getPseudo($donnees['IdParticipant']). '</a> </li>' ;
 			$i = $i +1;
 				}
 
