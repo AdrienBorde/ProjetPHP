@@ -1,5 +1,6 @@
 <?php 
 
+// Cette fonction permet d'éviter la répétition dans les différentes fonctions, elle permet de se connecter à la bdd
 function bdd() {
     try
 	{	$bdd = new PDO('mysql:host=localhost;dbname=whatthefoot;charset=utf8', 'root', '');
@@ -8,7 +9,7 @@ function bdd() {
 	{   die('Erreur : '.$e->getMessage());}
 }
 
-
+// Cette fonction permet d'initialiser l'id de session de l'utilisateur connecté 
 function setIdSession($pseudo)
 {
 			//se connecte à la base de donnée
@@ -25,7 +26,7 @@ function setIdSession($pseudo)
 }
 
 
-
+// Cette fonction permet d'initialiser le pseudo de session de l'utilisateur connecté 
 function setPseudoSession($id)
 {
 			//se connecte à la base de donnée

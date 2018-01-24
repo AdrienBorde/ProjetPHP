@@ -1,6 +1,6 @@
 <?php 
 
-
+// Cette fonction retourne un tableau, ce tableau est composé de tous les événements existants dans la base de données, chaque information de l'événement est affiché (mis à part l'id). Une colonne permettant de s'inscrire à l'événement avec un bouton permet à l'utilisateur de s'inscrire à l'événement en question, si il n'est pas complet.
 function listeEvent()
 {
 
@@ -50,7 +50,7 @@ function listeEvent()
 					
 	}
 
-
+// Ce tableau est similaire à celui ci-dessus. Par contre il n'affiche que les événements où l'utilisateur est inscrit. Une colonne "Deconnexion" est présente pour permettre à l'utilisateur connecté de se désinscrire si il le souhaite
 function listeEventInscrit($idClient)
 {
 	$bdd = bdd();
@@ -102,7 +102,9 @@ function listeEventInscrit($idClient)
 					
 }
 
-
+// Ce tableau est similaire à celui ci-dessus. Par contre il n'affiche que les événements que l'utilisateurà créer. 
+// Une colonne "Modifier" est présente pour permettre à l'utilisateur connecté de modofier les informations de l'événement s'il le souhaite.
+// Une colonne "Supprimer" est présente pour permettre à l'utilisateur connecté de supprimer l'événement qu'il a crée s'il le souhaite.
 function listeEventCreer($idClient)
 {
 	$bdd = bdd();
@@ -154,7 +156,7 @@ function listeEventCreer($idClient)
 					
 }
 
-
+// Cette fonction retourne la liste des stades existants, elle est utiliser dans les formulaires modifierevent.php et creerevent.php pour permettre à l'utilisateur de choisir le stade ou il souhaite faire se dérouler son événement.
 function listeStade() {
 	$bdd = bdd();
    //Préparation de la requete 
@@ -173,6 +175,8 @@ function listeStade() {
 
 }
 
+// Cette fonction retourne la liste des participants inscrit à l'événement dont l'id est passé en paramètre.
+// On retour alors une liste de pseudo cliquable permettant de consulter le profil de chaque participant.
 function listeParticipant($idevent) {
 	$bdd = bdd();
 

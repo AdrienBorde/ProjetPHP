@@ -1,3 +1,4 @@
+<!-- Ce formulaire permet de modifier un événement créer par l'utilisateur connecté, il comporte les mêmes paramètres que le formulaire de création d'événement -->
 <div class="row">
 	<form action="pageEvent.php" method="post" id="formmodifevent" class="col-6 mx-auto" >
 		Nom de l'event :

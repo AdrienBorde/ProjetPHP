@@ -1,3 +1,5 @@
+<!-- Ce formulaire est afficher lors que l'appui du bouton inscription sur la page index.php, il permet à un utilisateur non-inscrit de s'inscrire pour utiliser les fonctionnalités de l'application -->
+
 <form action="index.php" method="post" class="col-12" style="margin-bottom: 20px;">	
 	<div class="form-group row" style="margin-left: 700px;">
 	  <label for="example-text-input" class="col-2 col-form-label">Pseudo :</label>

@@ -1,6 +1,6 @@
 <?php
 
-
+// Cette fonction utilise une requete SQL INSERT qui permet d'inscrire l'utilisateur connecté (via son id) à l'événement concerné dans la table participant
 function inscriptionEvent($idClient,$idEvent) {
   $bdd = bdd();
    //Préparation de la requete 
@@ -11,6 +11,7 @@ function inscriptionEvent($idClient,$idEvent) {
     $req->closeCursor();
 }
 
+// Cette fonction utilise une requete SQL DELETE qui permet de supprimer l'utilisateur connecté (via son id) à l'événement concerné dans la table participant
 function desinscription($idClient,$idEvent) {
   $bdd = bdd();
     //Préparation de la requete 
@@ -21,6 +22,7 @@ function desinscription($idClient,$idEvent) {
     $req->closeCursor();
 }
 
+// Cette fonction vérifie si l'id du client est déjà associé avec l'event entré en paramètre, elle retourne true si l'utilisateur est déjà inscrit
 function deja_inscrit($idClient,$idEvent){
 // se connecter à la base de donnée
   $bdd = bdd();
@@ -40,7 +42,7 @@ function deja_inscrit($idClient,$idEvent){
   $reponse->closeCursor();
   }
 
-
+// Cette fonction retour le nombre d'inscrit à un événement, on y passe le paramètre idEvent, puis on compte les idParticipants associés à l'event
 function nombreInscrits($idevent) {
   $bdd = bdd();
 
@@ -51,7 +53,7 @@ function nombreInscrits($idevent) {
 
   }
 
-  
+// Cette fonction compare le nombre d'inscrit avec le nombre de participant total de l'événement, elle retourne true si ils sont égaux pour indiquer que l'événement est complet
 function eventcomplet($idevent) {
 
     if(nombreInscrits($idevent) == getnbParticipantEvent($idevent))

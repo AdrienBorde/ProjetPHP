@@ -1,6 +1,6 @@
 <?php 
 
-
+// On prend en argument tout les paramètres nécessaires à l'ajout d'un event puis on execute une requete SQL INSERT pour insérer l'événement
 function ajouter_event($Stade,$idCreateur,$DateEvent,$NomEvent,$StadeCol,$nbParticipant)
 {   //se connecter à la base de donnée
   
@@ -21,6 +21,8 @@ function ajouter_event($Stade,$idCreateur,$DateEvent,$NomEvent,$StadeCol,$nbPart
     $req->closeCursor();
 }
 
+
+// A l'aide des fonctions "set...." on modifie les données d'un événement dans la base de données
 function modifier_event($Stade,$idEvent,$DateEvent,$NomEvent,$StadeCol,$nbParticipant) {
   
   setStadeEvent($idEvent, $Stade);
@@ -30,6 +32,7 @@ function modifier_event($Stade,$idEvent,$DateEvent,$NomEvent,$StadeCol,$nbPartic
 
 }
 
+// Cette fonction utilise une requete SQL composé d'un DELETE pour supprimer l'événement de la base de données
 function supprimer_event($idevent) {
   $bdd = bdd();
     //Préparation de la requete 

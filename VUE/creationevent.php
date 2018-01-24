@@ -1,3 +1,5 @@
+<!-- Ce formulaire permet la création d'un événement, lors de l'appui du bouton, ce formulaire s'affiche avec les paramètres suivants : nom, date, stade, nombre de participants
+	L'utilisateur peut alors créer son propre événement. -->
 <div class="row">
 	<form action="pageEvent.php" method="post" id="formevent" class="col-6 mx-auto" >
 		Nom de l'event :

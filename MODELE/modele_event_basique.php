@@ -1,5 +1,9 @@
 <?php
 
+// Les fonctions "get....." suivantes permettent de récupérer les différentes données concernant un événement, un stade ou un client 
+
+
+
 function getIdEvent($NomEvent,$DateEvent){
 	$bdd = bdd();
 
@@ -61,6 +65,42 @@ function getnbParticipantEvent($idevent) {
 	   }
 	}
 
+function getStadeid($nomstade) {
+	$bdd = bdd();
+
+	$reponse = $bdd->query('SELECT `idStade` FROM `stade` WHERE `nom` = "'.$nomstade.'" ');
+	$reponse->execute();
+	while ($donnees = $reponse->fetch())
+	{
+	   return $donnees['idStade'];
+	   }
+	}
+
+function getStadeNom($idstade) {
+	$bdd = bdd();
+
+	$reponse = $bdd->query('SELECT `nom` FROM `stade` WHERE `idStade` = "'.$idstade.'" ');
+$reponse->execute();
+	while ($donnees = $reponse->fetch())
+	{
+	   return $donnees['nom'];
+	   }
+	}
+
+
+function getPseudo($idClient) {
+	$bdd = bdd();
+
+	$reponse = $bdd->query('SELECT Pseudo FROM client WHERE idClient = "' .$idClient. '" ');
+
+	while ($donnees = $reponse->fetch())
+	{
+	   return $donnees['Pseudo'];
+	   }
+	}
+
+
+// Les fonctions "set....." suivantes permettent de mettre à jour les différentes données concernant un événement
 
 function setNomEvent($idEvent,$NomEventChange)
 {
@@ -107,36 +147,4 @@ function setParticipantEvent($idEvent,$ParticipantEventChange)
 }
 
 
-function getStadeid($nomstade) {
-	$bdd = bdd();
 
-	$reponse = $bdd->query('SELECT `idStade` FROM `stade` WHERE `nom` = "'.$nomstade.'" ');
-	$reponse->execute();
-	while ($donnees = $reponse->fetch())
-	{
-	   return $donnees['idStade'];
-	   }
-	}
-
-function getStadeNom($idstade) {
-	$bdd = bdd();
-
-	$reponse = $bdd->query('SELECT `nom` FROM `stade` WHERE `idStade` = "'.$idstade.'" ');
-$reponse->execute();
-	while ($donnees = $reponse->fetch())
-	{
-	   return $donnees['nom'];
-	   }
-	}
-
-
-function getPseudo($idClient) {
-	$bdd = bdd();
-
-	$reponse = $bdd->query('SELECT Pseudo FROM client WHERE idClient = "' .$idClient. '" ');
-
-	while ($donnees = $reponse->fetch())
-	{
-	   return $donnees['Pseudo'];
-	   }
-	}
