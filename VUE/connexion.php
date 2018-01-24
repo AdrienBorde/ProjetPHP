@@ -21,7 +21,7 @@
                     <a class="nav-link " href="<?php 
                                         if (isset($_SESSION['pseudo'])) /* Lien Evènements */
                                         echo "pageEvent.php"
-                                        ?> ">Evènements</a>
+                                        ?> ">Evénements</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link " href="<?php 

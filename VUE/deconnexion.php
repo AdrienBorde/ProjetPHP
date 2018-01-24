@@ -21,7 +21,7 @@
                     <a class="nav-link " href="<?php 
                                         if (isset($_SESSION['pseudo'])) /* Lien Evènements */
                                         echo "pageEvent.php"
-                                        ?> ">Evènements</a>
+                                        ?> ">Evénements</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link " href="<?php 
@@ -38,7 +38,7 @@
             </ul>
 				    <!-- Formulaire/Bouton de déconnexion -->
 				    <form class="form-inline my-2 my-lg-0"  action="index.php" method="post" id="deconnexion">
-					      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="deco" value="Deconnexion">Deconnexion</button>
+					      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="deco" value="Deconnexion">Déconnexion</button>
 				    </form>
 
 				    <!-- <form action="index.php" method="post" id="connexion">

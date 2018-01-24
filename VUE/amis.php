@@ -16,5 +16,11 @@
                             ?>
                             </ul>
                         </div>
+
+
+                        <form class="form-inline my-2 my-lg-0 form-amis"  action="pageProfil.php" >
+                            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher un joueur" name="pseudo">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                         </form>
                 </div>
         </div>

@@ -1,10 +1,10 @@
 <aside class="col-2 mx-auto" id="chatgen">
 
 
-                    <h3>chat général</h3>   
+                    <h3>Partage ta passion !</h3>   
 			    <?php if(isset($_SESSION['id'])) 
 			    {
-?>
+					?>
 
 			    <form action="VUE/chatgen_post.php" method="post">
 			        <p>

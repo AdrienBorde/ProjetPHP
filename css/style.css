@@ -15,6 +15,16 @@ body, html {
 	color: black;
 }
 
+#chatgen
+{
+	font-family: verdana; 
+}
+
+.form-amis
+{
+	margin-left:150px ;
+}
+
 
 #titre_principal
 {
