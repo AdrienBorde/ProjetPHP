@@ -18,7 +18,7 @@
             
             }
             //si ils sont mauvais on active le message d'erreur sur la vue
-            else   echo "mauvais pseudo ou mauvais mot de passe";
+            else   echo "Mauvais pseudo ou mauvais mot de passe";
              
         }
 

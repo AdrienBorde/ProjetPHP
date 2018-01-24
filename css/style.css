@@ -5,7 +5,7 @@ body, html {
 }
 
 #menu, #banniere_image, #formevent, #sug_event, #map, 
-#sug_amis, #dernier_match, #amis, #connexion, #deconnexion, #inscription, #inscript,
+#sug_amis, #dernier_match, #amis, #inscription, #inscript,
  #liste_amis, table, td, th, #amis, #profil, #formmodifevent {
 	border: 1px solid black;
 	margin: 10px;
@@ -15,6 +15,7 @@ body, html {
 	color: black;
 }
 
+
 #titre_principal
 {
 	text-align: center;
@@ -23,6 +24,10 @@ body, html {
 	padding-top: 40px;
 }
 
+.menu-nav
+{
+	margin-left: 500px;
+}
 
 
 #whatthefoot 
@@ -30,18 +35,6 @@ body, html {
 	margin-right: 100px;
 }
 
-header
-{
-	background-color: green;
-}
-
-#inscript {
-	width: 150px;
-}
-
-#deconnexion {
-	width: 150px;
-}
 
 #menu ul, li {
 	text-decoration: none;
