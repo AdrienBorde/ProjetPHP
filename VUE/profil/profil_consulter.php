@@ -1,60 +1,61 @@
-           <?php 
-           		//Si le pseudo existe , on va afficher les informations du profil
-                
-	       ?>
-					<p> Profil de <?php echo $donnees['Pseudo']    ;   
+  <div class="col-7 mx-auto" id="profil">
+					<p> Profil de <?php echo $_GET['pseudo'];   
                    //Permet de voir si vous etes sur votre profil pour pouvoir le modifier aprés si besoin 
-                if(strcmp($donnees['Pseudo'], $_SESSION['pseudo']) == 0)
+                if(strcmp($_GET['pseudo'], $_SESSION['pseudo']) == 0)
                 {
-                  ?> <a href="<?php echo "pageProfil.php?pseudo=" . $donnees['Pseudo'] ."&action=modifier"?> " class="btn " role="button">
+                  ?> <a href="<?php echo "pageProfil.php?pseudo=" . $_GET['pseudo'] ."&action=modifier"?> " class="btn " role="button">
                   <button type="button" class="btn "> <img src="css/img/reglage.png" alt= "modifier votre profil" width="30px" height="30px"> Modifier</button>
                   </a>
                 
+             <?php  
+              }
 
-             <?php   }else 
+             else 
+              //sinon nous ne sommes pas sur notre compte, nous pouvons donc rajouter le profil à notre liste d'ami
                       { ?>
-
-                        <a href="<?php echo "pageProfil.php?pseudo=" . $donnees['Pseudo'] ."&action=ajouter"?> ">  
+                        <a href="<?php echo "pageProfil.php?pseudo=" . $_GET['pseudo'] ."&action=ajouter"?> ">  
                         <button type="button" class="btn btn-success">Ajouter</button>                     
                        </a>
                         <?php
                       }                       
                   echo "</p>";
+                  
         
          //Permet de vérifier que vous avez déjà mis une photo de profil
-          if(isset($donnees['Avatar'])) { ?> 
-         <img src="css/img/avatar/<?php echo $donnees['Avatar'] ?>"  width="180px" height="130px"/>
+          if(  $avatar !== null ) { ?> 
+         <img src="css/img/avatar/<?php echo $avatar ?>"  width="180px" height="130px"/>
          <?php }  else { ?>
 
          <img src="css/img/avatar/0.png" width="180px" height="130px" /> <?php } ?>
           
-          <p> Prénom : <?php      // on regarde si un prénom a été renseigné sinon on affiche un message par défaut
-                                  if(isset($donnees['Prenom'])){
-                                   echo $donnees['Prenom'];
-                                 } else { 
-                                    echo "il n'y a pas de prenom ";
-                                  }
+          <p> Prénom : <?php    
+            // on regarde si un prénom a été renseigné sinon on affiche un message par défaut
+             if(isset($prenom)){
+                echo $prenom;
+               } else { 
+             echo "il n'y a pas de prenom ";
+            }
            ?></p>
 
           <p> Nom : <?php // on regarde si un Nom a été renseigné sinon on affiche un message par défaut
-                                  if(isset($donnees['Nom'])){
-                                   echo $donnees['Nom'];
+                                  if(isset($nom)){
+                                   echo $nom;
                                  } else { 
                                     echo "il n'y a pas de nom ";
                                   }
             ?></p>
           
           <p> Date de naissance: <?php  // on regarde si une date de naissance a été renseigné sinon on affiche un message par défaut
-                                  if(isset($donnees['Birth'])){
-                                   echo $donnees['Birth'];
+                                  if(isset($birth)){
+                                   echo $birth;
                                  } else { 
                                     echo "il n'y a pas de date de naissance ";
                                   }
             ?></p>
          
           <p> Ville : <?php // on regarde si une ville a été renseigné sinon on affiche un message par défaut
-                                  if(isset($donnees['Ville'])){
-                                   echo $donnees['Ville'];
+                                  if(isset($ville)){
+                                   echo $ville;
                                  } else { 
                                     echo "il n'y a pas de ville ";
                                   }
@@ -62,8 +63,8 @@
           
           <p> Poste préférentiel : <?php  // on regarde si un poste a été renseigné sinon on affiche un message par défaut
 
-                                  if(isset($donnees['Poste'])){
-                                   echo $donnees['Poste'];
+                                  if(isset($poste)){
+                                   echo $poste;
                                  } else { 
                                     echo "il n'y a pas de poste ";
                                   }
@@ -72,15 +73,16 @@
 
 
           <p> Mail: <?php // on affiche le mail de la personne
-              echo $donnees['mail']?> </p>
+              echo $mail;?> </p>
          
 
           <p> Description : <?php  // on regarde si une description a été renseigné sinon on affiche un message par défaut  
-                                   if(isset($donnees['Description'])){
-                                   echo $donnees['Description'];
+                                   if(isset($description)){
+                                   echo $description;
                                  } else { 
                                     echo "il n'y a pas de description";
                                   }
             ?>
         </p>
               
+              </div>
