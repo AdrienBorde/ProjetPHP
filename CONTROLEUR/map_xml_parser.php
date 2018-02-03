@@ -1,4 +1,5 @@
 <?php
+//Fichier permettant de parser les données de la base de données en XML
 
 // Connexion Ã  la base de donnÃ©es
 try
@@ -23,6 +24,7 @@ else {
 
 header("Content-type: text/xml");
 
+//Parsing des données
 $xml = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>';
 $xml .= '<markers>';
 while ($marker = $req->fetch(PDO::FETCH_OBJ)) {

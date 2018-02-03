@@ -8,7 +8,7 @@
           label: 'F'
         }
       };
-
+/* Fonction permettant de créer une Google Map interractive en ajoutant des éléments personnalisables */
       function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
@@ -70,8 +70,10 @@
 
       function doNothing() {}
     </script>
+
+    <!-- Lien où l'on rentre la clé API fournit par Google afin d'avoir accès à toutes les fonctionnalités  -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ1R_5j5_2AyvAkiyWTZr-s3j8SwKS7uQ&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ1R_5j5_2AyvAkiyWTZr-s3j8SwKS7uQ&callback=initMap"> 
     </script>
                     
                 </div>

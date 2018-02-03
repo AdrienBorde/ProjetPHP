@@ -26,7 +26,7 @@
                   <li class="nav-item">
                     <a class="nav-link " href="<?php 
                                         if (isset($_SESSION['pseudo'])) /* Lien Mise à jour des stades */
-                                        echo "xml_parser.php"
+                                        echo "/CONTROLEUR/map_xml_parser.php"
                                         ?> ">Mise à jour</a>
                   </li>
                   <li class="nav-item">
